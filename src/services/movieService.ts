@@ -20,19 +20,16 @@ export async function fetchMovies({
   query,
   page,
 }: FetchMoviesParams): Promise<MoviesResponse> {
-  const response = await axios.get<MoviesResponse>(
-    `${BASE_URL}/search/movie`,
-    {
-      params: {
-        query,
-        language: "uk-UA",
-        page,
-      },
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+  const response = await axios.get<MoviesResponse>(`${BASE_URL}/search/movie`, {
+    params: {
+      query,
+      language: "uk-UA",
+      page,
     },
-  );
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   return response.data;
 }

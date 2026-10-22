@@ -5,7 +5,13 @@ import "modern-normalize/modern-normalize.css";
 import "./index.css";
 import App from "./components/App/App";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
